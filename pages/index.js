@@ -1,13 +1,13 @@
-import Menu from "../components/Menu"
 import GithubIcon from "../components/GithubIcon"
-import Bottom from "../components/Bottom"
 import Page from "../components/Page"
 import Post from "../components/Post"
 import Scroll from "../components/Scroll"
+import Layout from "../components/Layout"
+import Link from "next/link"
 import contents from "../content.json"
 export default function Index() {
     return (
-        <body>
+        <Layout>
             <Page id="front">
                 <div className="middle">
                     <h1> {`Hans &`} </h1>
@@ -17,8 +17,10 @@ export default function Index() {
             </Page>
             <Page id="main">
                 <h1> Recent Posts </h1>
-                {contents.posts.map(post => (
-                    <Post title={post.title} summary={post.summary} key={post.id}></Post>
+                {contents.posts.map((post, index) => (
+                    <Link href={`/post?title=${post.title}`} key={index} passHref>
+                        <Post title={post.title} summary={post.summary}></Post>
+                    </Link>
                 ))}
             </Page>
             <style jsx>{`
@@ -58,9 +60,7 @@ export default function Index() {
                     font-size: 72px;
                 }
             `}</style>
-            <Menu></Menu>
             <GithubIcon></GithubIcon>
-            <Bottom></Bottom>
-        </body>
+        </Layout>
     )
 }

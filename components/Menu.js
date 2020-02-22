@@ -72,8 +72,8 @@ class Menu extends React.Component {
                     <h1>Menu</h1>
                     <Column name="About"></Column>
                     <Column name="Contact"></Column>
-                    {content.catalogues.map(name => (
-                        <Column name={name}></Column>
+                    {content.catalogues.map((name, index) => (
+                        <Column name={name} key={index}></Column>
                     ))}
                 </SideBar>
                 <style jsx>{`

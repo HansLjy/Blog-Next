@@ -1,6 +1,6 @@
 
 /*
-    main: the main page to place post summarys
+    main: the main page to place post summaries
     front: the front page(which is the first thing ou see when you visit the website)
 */
 export default function Page(props) {
@@ -18,6 +18,7 @@ export default function Page(props) {
                     flex-direction: column;
                 }
                 #front {
+                    background-color: rgb(127, 127, 127);
                     background-image: url("../static/cosmos.js");
                     background-size: cover;
                 }

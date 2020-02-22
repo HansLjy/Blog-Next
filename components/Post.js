@@ -6,15 +6,21 @@
         summary = "the summary of the post"
     }
 */
-export default function Post(props) {
-    const title = props.title;
-    const summary = props.summary;
-    return (
-        <>
-            <div className="post">
-                <h2> {title} </h2>
-                <p> {summary} </p>
-                <hr></hr>
+
+class Post extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        const title = this.props.title;
+        const summary = this.props.summary;
+        return (
+            <>
+                <div className="post">
+                    <h2 > {title} </h2>
+                    <p> {summary} <a href={this.props.href}>...Read More</a></p>
+                    <hr></hr>
+                </div>
                 <style jsx>{`
                     .post {
                         margin-left: 22%;
@@ -22,7 +28,9 @@ export default function Post(props) {
                         margin-top: 10px;
                     }
                 `}</style>
-            </div>
-        </>
-    )
+            </>
+        );
+    }
 }
+
+export default Post;
